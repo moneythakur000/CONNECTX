@@ -1,0 +1,390 @@
+<style>
+  html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto';
+  overflow: hidden;
+}
+
+#page2{
+  display: none;
+}
+
+#page3{
+  display: none;
+}
+
+.all{
+  width: 100px;
+  position: absolute;
+  left: 0%;
+/*   left: 90%; */
+  -webkit-transform: rotate(270deg);
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 5px;
+  font-weight: 500;
+  /*  Keep on top of .view-all  */
+  z-index: 200;
+  cursor: pointer;
+}
+
+.view-all{
+  
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #a8bedc;
+  margin-left: calc(-175% + 80px);
+
+}
+
+.preview{
+  width: 300px;
+  height: 250px;
+}
+
+.preview img{
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.preview h3{
+  margin: -25px 0px 0px -20px;
+/*   margin-top: -30px; */
+  font-size: 2rem;
+  color: white;
+}
+
+.page{
+  position: relative;
+  width: 860px;
+  height: 350px;
+  margin-right: ;
+}
+
+.page .text{
+  height: 100%;
+  position: relative;
+}
+
+h1{
+/*   font-weight: 700 */
+  font-size: 70px;
+  letter-spacing: -.5px;
+  margin-bottom: 30px;
+  margin-top: 0;
+  margin-left: 100%;
+}
+
+.page img{
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  float: right;
+  z-index: -1;
+  right: 0;
+  top: -25px;
+  border-radius: 5px;
+}
+
+.description{
+  width: 200px;
+  font-size: 14px;
+  color: #908e8e
+}
+
+.more{
+  position: absolute;
+  bottom: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.arrow{
+  right: 20px;
+  position: absolute;
+}
+
+.arrow svg{
+  width: 30px;
+  height: 30px;
+   cursor: pointer;
+}
+
+.icons{
+  position: absolute;
+  bottom: 20px;
+  right: 60px;
+  display: flex;
+  z-index: 200;
+}
+
+.icons svg{
+  width: 20px;
+  height: 20px;
+  padding: 0px 5px;
+  
+}
+
+/* 
+-----------------------------
+        Animations
+-----------------------------
+*/
+
+.out-text{
+  animation: movedown-out 1.5s ease-in;
+}
+
+.out-img{
+  animation: moveup-out 1.5s ease-in;
+}
+
+.in-text{
+  animation: movedown-in 2s cubic-bezier(0, 0, 0.03, 0.98);
+}
+
+.in-img{
+  animation: moveup-in 2s cubic-bezier(0, 0, 0.03, 0.98);
+}
+
+.open-slider{
+  animation: open-view-slider 3s forwards;
+}
+
+.open-slider-text{
+  animation: open-view-text 3s forwards;
+}
+.close-slider{
+  animation: close-view-slider 3s forwards;
+}
+
+.close-slider-text{
+  animation: close-view-text 3s forwards;
+}
+
+@keyframes movedown-out{
+  0%{
+    margin-top:0;
+    opacity: 1;
+  }
+  100%{
+    margin-top: 800px;
+    opacity: 0;
+  }
+}
+
+@keyframes moveup-out{
+  0%{
+    top: -25px;
+    opacity: 1;
+  }
+  100%{
+    top: -800px;
+  }
+}
+
+@keyframes movedown-in{
+  100%{
+    margin-top:0;
+  }
+  0%{
+    margin-top: 800px;
+  }
+}
+
+@keyframes moveup-in{
+  100%{
+    top: -25px;
+  }
+  0%{
+    top: -800px;
+  }
+}
+
+@keyframes open-view-slider{
+  0%{
+     margin-left: calc(-100% + 80px);
+  }
+  100%{
+     margin-left: 0;
+  }
+}
+
+@keyframes open-view-text{
+  0%{
+    left: 0%;
+  }
+  100%{
+    left: 93%;
+  }
+}
+
+@keyframes close-view-slider{
+  0%{
+     margin-left: 0;
+  }
+  100%{
+     margin-left: calc(-170% + 80px);
+  }
+}
+
+@keyframes close-view-text{
+  0%{
+    left: 93%;
+  }
+  100%{
+    left: 0%;
+  }
+}
+</style>
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,500,600,900" rel="stylesheet">
+<div class="view-all" id="all-projects">
+  <div class="preview">
+    <img src="https://static01.nyt.com/images/2018/06/19/arts/19xxx/19xxx-superJumbo-v2.jpg?quality=75&auto=webp"/>
+    <h3>xxxtentacion</h3>
+  </div>
+    <div class="preview">
+    <img src="https://www.highsnobiety.com/static-assets/dato/1681839335-drake-scorpion-song-ranking-01.jpg?fp-x=0.5&fp-y=0.5&fit=crop&auto=compress%2Cformat&cs=srgb&ar=1200%3A800&w=1200"/>
+      <h3>Drake</h3>
+  </div>
+    <div class="preview">
+    <img src="https://celebanswers.com/wp-content/uploads/2020/09/shutterstock_233351890-1-1140x1710.jpg"/>
+      <h3>Zayn Malik</h3>
+  </div>
+</div>
+<p class="all" id="open-projects">Popular Feed</p>
+<div class="page" id="page1">
+    <img src="https://www.billboard.com/wp-content/uploads/2020/11/Billie-Eilish-VF-Oscar-Party-2020-Billboard-1548-1604945822.jpg?w=942&h=623&crop=1" id="img1"/>
+  <div class="text" id="text1">
+  <h1>Billie Eilish</h1>
+  <p class="description">Billie Eilish Pirate Baird O'Connell is an American singer and songwriter. She first gained public attention in 2015 with her debut single "Ocean Eyes".</p>
+
+  <p class="more">Top Artist</p>
+  </div>
+</div>
+<div class="page" id="page2">
+    <img src="https://ichef.bbci.co.uk/news/1024/cpsprodpb/6E4E/production/_133083282_gettyimages-1406431012.jpg.webp" id="img2"/>
+  <div class="text" id="text2">
+  <h1>Kendrick Lamar</h1>
+  <p class="description">Kendrick Lamar Duckworth is an American rapper and singer-songwriter. Often regarded as one of the greatest rappers of all time, he is the only musician to be awarded the Pulitzer Prize for Music.</p>
+
+  <p class="more">Top Artist</p>
+  </div>
+</div>
+<div class="page" id="page3">
+    <img src="https://akamai.vgc.no/v2/images/8e9dfc53-ec5b-4daa-a517-d02a84d86326?fit=crop&h=1263&w=1900&s=33bb64b0c7be87e9f0effb698dc6b53dccc107b4" id="img3"/>
+  <div class="text" id="text3">
+  <h1>Alan Walker</h1>
+  <p class="description">Alan Olav Walker is a Norwegian DJ and music producer. Walker released "Fade" on NoCopyrightSounds. He rose to fame with his 2015 single "Faded".</p>
+
+  <p class="more">Top Artist</p>
+  </div>
+</div>
+<div class="arrow" id="next">
+  <svg viewBox="0 0 24 24">
+    <path fill="#000000" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+</svg>
+</div>
+<!-- <div class="icons">
+  <div>
+    <svg viewBox="0 0 24 24">
+    <path fill="#000000" d="M17,2V2H17V6H15C14.31,6 14,6.81 14,7.5V10H14L17,10V14H14V22H10V14H7V10H10V6A4,4 0 0,1 14,2H17Z" />
+</svg>
+  </div>
+  <div>
+    <svg viewBox="0 0 24 24">
+    <path fill="#000000" d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z" />
+</svg>
+  </div>
+  <div>
+    <svg viewBox="0 0 24 24">
+      <path fill="#000000" d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+   </svg>
+  </div>
+</div> -->
+<script>
+  var text1 = document.getElementById("text1");
+var img1 = document.getElementById("img1");
+var text2 = document.getElementById("text2");
+var img2 = document.getElementById("img2");
+var text3 = document.getElementById("text3");
+var img3 = document.getElementById("img3");
+
+var page1 = document.getElementById("page1");
+var page2 = document.getElementById("page2");
+var page3 = document.getElementById("page3");
+
+var slideNum = 0;
+var slides = [[text1, img1, page1], [text2, img2, page2], [text3, img3, page3]];
+
+nextSlide = () =>{
+  console.log("here")
+  console.log(slideNum)
+  slides[slideNum][0].classList.remove("in-text")
+  slides[slideNum][1].classList.remove("in-img");
+  slides[slideNum][0].className += " out-text";
+  slides[slideNum][1].className += " out-img";
+  setTimeout(()=>{
+    let nextSlide = slideNum === slides.length - 1 ? 0 : slideNum + 1;
+    slides[slideNum][2].style.display="none";
+    slides[slideNum][0].classList.remove("out-text");
+    slides[slideNum][1].classList.remove("out-img");
+    slides[nextSlide][2].style.display="initial";
+    slides[nextSlide][0].className += " in-text";
+    slides[nextSlide][1].className += "in-img";
+    slideNum = nextSlide;
+  }, 1500)
+
+}
+
+var openProjects = document.getElementById("open-projects");
+var allProjects = document.getElementById("all-projects");
+var projectPage = false;
+
+switchProjectPage = () =>{
+  if( projectPage === false){
+    projectPage = true;
+    openProjectPage();
+  }else{
+    projectPage = false;
+    closeProjectPage();
+  }
+}
+
+openProjectPage = () =>{
+  openProjects.className += " open-slider-text";
+  allProjects.className += " open-slider";
+  openProjects.classList.remove("close-slider-text");
+  allProjects.classList.remove("close-slider");
+}
+
+closeProjectPage = () =>{
+  openProjects.classList.remove("open-slider-text");
+  allProjects.classList.remove("open-slider");
+  allProjects.className += " close-slider";
+  openProjects.className += " close-slider-text";
+}
+
+document.getElementById("next").addEventListener("click", nextSlide, false);
+openProjects.addEventListener("click", switchProjectPage, false);
+</script>

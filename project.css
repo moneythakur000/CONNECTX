@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins;wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+   font-family: 'Poppins' , sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   list-style: none;
+   text-decoration: none;
+}
+body{
+   background: #242424;
+   letter-spacing: 0.5px;
+   color: #fff;  
+}
+/* input::file-selector-button {
+   color: rgb(178, 104, 77);
+    margin-bottom: -8px;
+   margin-right: -10px;
+   padding-bottom: -50px; 
+   height:2px;
+    width:20px;
+    border: thin solid grey; 
+   border-radius: 9px;
+ } */
+
+
+ label{
+   font-size: 22px;
+   font-weight: 700; 
+   cursor: pointer; 
+   color: #a32d15; 
+   opacity: .4; 
+   transition: opacity .4s ease-in-out;
+   display: block; 
+   width: calc(100% - 48px) ;
+   text-align: right; 
+   z-index: 100; 
+   user-select: none;
+ }
+ input[type="radio"]{
+   display: none;
+   width: 0;
+ }
+ label:hover, input[type="radio"]:checked+label {
+   opacity: 1; 
+ }
+ .popup{
+   margin-top: 5%;
+   margin-bottom: 5%;
+   width: 100%;
+   height: 40%;
+   min-height: 400px; 
+   max-height: 480px; 
+   border-radius: 40px;
+   box-sizing: border-box; 
+   /* border: 6px solid #262a2d; */
+   background-color: #0e0f10;
+   overflow: hidden;
+   box-shadow: 16px 16px 48px #10111430; 
+ }
+ .tabs{
+   width: 100%;
+   max-width: 240px;
+   height: 100%;
+   display: flex;
+   flex-direction: column; 
+   justify-content: space-around; 
+   position: relative;
+ }
+ .marker{
+   position: absolute; 
+   width: 100%;
+   height: 200%;
+   display: flex; 
+   flex-direction: column;
+   top: calc(-100% );
+   left: 0;
+   transition: transform .2s ease-in-out; 
+ }
+ .marker #bottom, .marker #top{
+   background-color: #1a1d20;
+   box-shadow: 32px 32px 48px #2e364315; 
+ }
+ .marker #top{
+   height: calc(50%);
+   margin-bottom: auto; 
+   border-radius: 0 0 32px 0; 
+ }
+ .marker #bottom{
+   height: calc(50% - 72px);
+   border-radius: 0 32px 0 0; 
+ }
+ #tab1:checked ~ .marker{transform: translateY(calc(calc(50% / 6) * 0));}
+ #tab2:checked ~ .marker{transform: translateY(calc(calc(50% / 6) * 1));}
+ #tab3:checked ~ .marker{transform: translateY(calc(calc(50% / 6) * 2));}
+ #tab4:checked ~ .marker{transform: translateY(calc(calc(50% / 6) * 3));}
+ #tab5:checked ~ .marker{transform: translateY(calc(calc(50% / 6) * 4));}
+ #tab6:checked ~ .marker{transform: translateY(calc(calc(51% / 6) * 5));}
+
+
+.insta-writing{
+   color: white;
+}
+::-webkit-scrollbar{
+   width: 3px;
+}
+::-webkit-scrollbar-track{
+   background: #1c1c1c;
+}
+::-webkit-scrollbar-thumb{
+   background: #eee;
+}
+:root{
+   --gradient: linear-gradient(to right,#e2336b,#fcac46);
+}
+.sidebar{
+   position: fixed;
+   width: 300px;
+   height: 100vh;
+   background: #1c1c1c;
+   padding: 20px;
+   z-index: 1000;
+}
+.logo img{
+   width: 140px;
+}
+.profile{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: center;
+   margin-top: 1.4em;
+}
+.profile-img{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 80px;
+   height: 80px;
+   border-radius: 50%;
+   border: 2px solid #e2336b;
+}
+.profile-img img{
+   width: 70px;
+   height: 70px;
+   object-fit: cover;
+   border-radius: 50%;
+   object-position: center;
+
+}
+.name{
+   display: flex;
+   align-items: center;
+   margin: 1rem 0 0.4rem;
+   color:#fff
+}
+.name h1{
+   font-size: 1.1rem;
+}
+.name img{
+   margin-left: 4px;
+   width: 20px;
+
+}
+.about{
+   display: flex;
+   justify-content: space-between;
+   margin-top: 1rem;
+}
+.box{
+   text-align: center;
+}
+.box h3{
+   font-size: 1rem;
+   font-weight: 500;
+   color: #fff;
+}
+.box span{
+   font-size: 0.98rem;
+   font-weight: 0;
+   color: #eee;
+}
+.menu{
+   margin-top: 15px;
+   margin-left: 5px;
+   
+}
+.menu a{
+   width: 100%;
+   font-size: 1rem;
+   color: #fff;
+   display: flex;
+   align-items: center;
+   line-height: 40px;
+}
+.menu .icon{
+   margin-right: 1rem;
+   font-size: 20px;
+}
+.menu a::hover::before,
+.menu .active::before{
+   content:'';
+   position: absolute;
+   right: 0;
+   width: 2px;
+   height: 17px;
+   background: #e2336b;
+}
+
+ /* main home */
+
+.main-home{
+   position: absolute;
+   width: calc(100% - 300px);
+   left: 300px;
+   background: #242424;
+   top: 0;
+   min-height: 100vh;
+   border-radius: 1rem 0 0 1rem;
+   padding: 20px;
+   overflow: hidden;
+}
+.header{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.search{
+   display: flex;
+   align-items: center;
+   background: #07070720;
+   width: 300px;
+   height: 2.4rem;
+   padding: 10px;
+   border-radius: 10px;
+}
+.search input{
+   border: none;
+   outline: none;
+   background: transparent;
+   margin-left: 7px;
+}
+.search input::placeholder{
+   color: #eee
+}
+.search i{
+   font-size: 20px;
+   color: #eee;
+}
+.header-content{
+   display: flex;
+   align-items: center;
+}
+.header-content i{
+   color: #fff;
+   font-size: 20px;
+   margin-left: 1ren;
+}
+.header-content .btn{
+   display: flex;
+   align-items: center;
+   padding: 10px;
+   border-radius: 8px;
+   background: var(--gradient);
+   margin-left: 1rem;
+}
+.header-content .btn i{
+   color: hsla(0,0%,13%,0.6);
+   margin-right: 10px;
+}
+.btn-text{
+   color: #fff;
+}
+.stories-title{
+   display: flex;
+   justify-content: space-between;
+   margin-top: 2rem;
+}
+.stories-title h1{
+   font-size: 1.8rem;
+   color: #fff;
+   letter-spacing: 1px;
+}
+.stories-title .btn{
+   display: flex;
+   align-items: center;
+   color: #eee;
+}
+.stories-title .btn i{
+   font-size: 24px;
+   margin-right: 10px;
+}
+.stories{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-top: 2rem;   
+}
+.stories-img{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 80px;
+   height: 80px;
+   border-radius: 50px;
+   object-position: center;
+   border: 2px solid #e2336b;
+}
+.stories-img img{
+   width: 70px;
+   height: 70px;
+   object-fit: cover;
+   border-radius: 50%;
+   object-position: center;
+}
+.stories-img.color{
+   border: 2px solid #dbdbdb;
+}
+.stories-img .add{
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 20px;
+   width: 70px;
+   height: 70px;
+   border-radius: 50%;
+   color: #fff;
+   background: hsla(0,0%,25%,0.7);
+}
+.feed{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-top: 1rem;
+}
+.feed h1{
+   font-size: 1.7rem;
+   letter-spacing: 1px;
+   color: #fff;
+}
+.feed-text{
+   display: flex;
+   align-items: center;
+   color: #eee;
+}
+.feed h2{
+   font-size: 1rem;
+   margin-right: 1rem;
+}
+.main-posts{
+   display: flex;
+   grid-template-columns: repeat(auto-fix,minmax(300px-auto));
+   gap: 11px;
+}
+.post-box{
+   width: 300px;
+   background-color: #1c1c1c;
+   padding: 15px;
+}
+.post-box img{
+   width: 100%;
+   height: 344px;
+   object-fit: cover;
+   border-radius: 0.8rem;
+}
+.post-info{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.post-img{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 35px;
+   height: 35px;
+   border: 2px solid #e2336b;
+   border-radius: 50%;
+}
+.post-img img{
+   width: 27px;
+   height: 27px;
+   object-fit: cover;
+   border-radius: 50%;
+   object-position: center;
+}
+.post-profile{
+   display: flex;
+   align-items: center;
+}
+.post-profile h3{
+   font-size: 12px;
+   font-weight: 600px;
+   color: #eee;
+   margin-left: 5px;
+}  
+.likes{
+   display: flex;
+   align-items: center;
+}
+.likes i{
+   font-size: 20px;
+   margin-left: 10px;
+   color: #eee;
+}
+.likes span{
+   font-size: 14px;
+   margin-left: 7px;
+   color: #eee;
+}
+.footer .footer-section {
+   margin-left: 0.1rem;
+   margin-right: 0.1rem;
+   color: #FFF;
+   font-size: 12px;
+   font-family: sans-serif;
+   background-color: #1C1C1C;
+}
+.footer a:hover {
+   color: #ff0000;
+}
+.menu a:hover {
+      color: #ff0000;
+}
+.name#no-background {
+   background-image: none;
+}
+.post-box > .post-profile > .bbb a:hover {
+   color: #ff0000;
+   height: 100px;
+}
+.stories-title a:hover {
+   color: #ff0000;
+}
+.feed a:hover {
+   color: #ff0000;
+}
+.main-posts a:hover {
+   color: #ff0000;
+}
+

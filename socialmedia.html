@@ -1,0 +1,174 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONNECTX</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .blue-red-bg {
+    background: linear-gradient(to right, #1a1b1e, #17314f);
+  }
+
+  .login-box {
+    width: 300px;
+    padding: 40px;
+    background-color: #5871aa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(185, 51, 51, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .login-box:hover {
+    transform: scale(1.05);
+  }
+
+  .toggle-bar {
+    display: none;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .toggle-bar img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  h2 {
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #c07711;
+    border-radius: 5px;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  input[type="submit"] {
+    width: 45%;
+    padding: 10px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e3c7d;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #ca8888;
+  }
+
+  .btn-login {
+    background-color: #b07a7a;
+  }
+
+  .btn-signup {
+    background-color: #3366ff;
+  }
+
+  .btn-otp {
+    background-color: #00cc66;
+  }
+
+  .btn-login:hover,
+  .btn-signup:hover,
+  .btn-otp:hover {
+    background-color: #b37c7c;
+  }
+</style>
+</head>
+<body>
+<div class="container blue-red-bg">
+<div class="login-box">
+<h2>Welcome to CONNECTX</h2>
+<form id="loginForm">
+<input type="text" placeholder="Username" id="username" pattern="[a-z0-9]+" title="Username should contain only lowercase letters and numbers" required>
+<input type="password" placeholder="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character" required>
+<input type="checkbox" id="showPassword">
+<label for="showPassword">Show Password</label>
+<input type="submit" class="btn-login" onclick="location.href='project.html'" value="Login">
+<input type="button" class="btn-signup" value="Sign Up" onclick="toggleForms();">
+</form>
+<form id="otpForm" style="display: none;">
+<input type="tel" placeholder="Phone Number" id="phoneNumber" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number" required>
+<input type="submit" class="btn-otp" value="Login with OTP">
+</form>
+<a href="#" id="forgotPassword">Forgot Password?</a>
+</div>
+<div class="toggle-bar">
+<img src="posts_logo.png" alt="Posts">
+<img src="search_logo.png" alt="Search">
+<label for="upload-input">
+<img src="upload_logo.png" alt="Upload">
+</label>
+<img src="notification_logo.png" alt="Notifications">
+<img src="my_account_logo.png" alt="My Account">
+</div>
+</div>
+
+<script>
+function toggleForms() {
+var loginForm = document.getElementById("loginForm");
+var otpForm = document.getElementById("otpForm");
+loginForm.style.display = loginForm.style.display === "none" ? "block" : "none";
+otpForm.style.display = otpForm.style.display === "none" ? "block" : "none";
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+event.preventDefault(); 
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+console.log("Username: " + username);
+console.log("Password: " + password);
+alert("Login successful! Welcome to CONNECTX, " + username + "!");
+document.querySelector(".login-box").style.display = "none";
+document.querySelector(".toggle-bar").style.display = "flex";
+});
+
+document.getElementById("forgotPassword").addEventListener("click", function(event) {
+event.preventDefault(); 
+toggleForms(); 
+});
+
+document.getElementById("otpForm").addEventListener("submit", function(event) {
+event.preventDefault(); 
+var phoneNumber = document.getElementById("phoneNumber").value;
+console.log("Phone Number: " + phoneNumber);
+alert("OTP sent to " + phoneNumber + ". Please verify!");
+});
+
+document.getElementById("showPassword").addEventListener("change", function() {
+var passwordInput = document.getElementById("password");
+if (passwordInput.type === "password") {
+passwordInput.type = "text";
+} else {
+passwordInput.type = "password";
+}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camera Access</title>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #videoContainer {
+        display: inline-block;
+        margin-top: 20px;
+    }
+    video {
+        width: 100%;
+        max-width: 600px;
+        border: 2px solid white;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h2>Camera Access</h2>
+
+<button onclick="startCamera()">Allow Camera Access</button>
+
+<div id="videoContainer"></div>
+
+<script>
+function startCamera() {
+    // Check if the browser supports the WebRTC API (getUserMedia)
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Request access to the user's camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            // Access granted, display the camera stream
+            var video = document.createElement('video');
+            video.srcObject = stream;
+            video.autoplay = true;
+            document.getElementById('videoContainer').appendChild(video);
+            // Add button for capturing image
+            var captureButton = document.createElement('button');
+            captureButton.textContent = 'Capture Image';
+            captureButton.onclick = function() {
+                captureImage(video);
+            };
+            document.body.appendChild(captureButton);
+        })
+        .catch(function(error) {
+            // Handle errors
+            console.error('getUserMedia error: ', error);
+            alert('Failed to access camera: ' + error.message);
+        });
+    } else {
+        // Browser does not support getUserMedia
+        alert('Sorry, your browser does not support camera access.');
+    }
+}
+
+function captureImage(video) {
+    // Create a canvas element to draw the video frame
+    var canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    var ctx = canvas.getContext('2d');
+    // Draw the current frame from the video onto the canvas
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    // Convert the canvas content to a data URL representing a PNG image
+    var imageDataURL = canvas.toDataURL('image/png');
+    // Create a link element to download the captured image
+    var link = document.createElement('a');
+    link.href = imageDataURL;
+    link.download = 'captured_image.png';
+    link.click();
+}
+</script>
+
+</body>
+</html>
